@@ -1,0 +1,254 @@
+.fitness-tracker-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.fitness-tracker-container {
+  max-width: 700px;
+  width: 100%;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+.fitness-tracker {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.fitness-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.fitness-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.fitness-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.add-workout-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.add-workout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.workout-form {
+  background: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.submit-workout-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-workout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.workouts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.workout-day {
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+
+.workout-day:last-child {
+  border-bottom: none;
+}
+
+.workout-date {
+  font-size: 1.1rem;
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.workout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.workout-item:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.workout-info {
+  flex: 1;
+}
+
+.workout-exercise {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.workout-details {
+  display: flex;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.delete-workout-button {
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-workout-button:hover {
+  background: #fee;
+  color: #e00;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.empty-state svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 480px) {
+  .fitness-tracker {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fitness-stats {
+    gap: 1rem;
+  }
+}
+

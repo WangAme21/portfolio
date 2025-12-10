@@ -1,0 +1,129 @@
+.calculator-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+.calculator {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.calculator-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-header h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.calculator-display {
+  background: #1a1a1a;
+  color: white;
+  font-size: 3rem;
+  padding: 1.5rem;
+  text-align: right;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.calculator-button {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  background: #f0f0f0;
+  color: #333;
+}
+
+.calculator-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-button:active {
+  transform: scale(0.95);
+}
+
+.calculator-button.operator {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.calculator-button.function {
+  background: #d0d0d0;
+  color: #333;
+}
+
+.calculator-button.zero {
+  grid-column: span 2;
+}
+
+.calculator-button.equals {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 1.5rem;
+  }
+
+  .calculator-display {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  .calculator-button {
+    padding: 1rem;
+    font-size: 1.25rem;
+  }
+}
+
