@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { FaArrowLeft, FaPaperPlane, FaRobot, FaUser, FaExclamationTriangle } from 'react-icons/fa'
-import { FLOWISE_API_URL, FLOWISE_AUTH, CHATFLOW_ID } from '../../config/flowiseConfig'
+import { FLOWISE_API_URL, FLOWISE_AUTH, CHATFLOW_ID, FLOWISE_API_KEY } from '../../config/flowiseConfig'
 import './AIChatAssistant.css'
 
 const AIChatAssistant = ({ isWidget = false }) => {
@@ -58,10 +58,18 @@ const AIChatAssistant = ({ isWidget = false }) => {
         'Content-Type': 'application/json',
       }
 
-      if (FLOWISE_AUTH.username && FLOWISE_AUTH.password) {
+      // API Key authentication (for FlowiseAI Cloud)
+      if (FLOWISE_API_KEY) {
+        headers['Authorization'] = `Bearer ${FLOWISE_API_KEY}`
+      }
+      // Basic authentication (for self-hosted)
+      else if (FLOWISE_AUTH.username && FLOWISE_AUTH.password) {
         const auth = btoa(`${FLOWISE_AUTH.username}:${FLOWISE_AUTH.password}`)
         headers['Authorization'] = `Basic ${auth}`
       }
+
+      console.log('Calling FlowiseAI:', FLOWISE_API_URL)
+      console.log('Request body:', requestBody)
 
       const response = await fetch(FLOWISE_API_URL, {
         method: 'POST',
@@ -69,20 +77,30 @@ const AIChatAssistant = ({ isWidget = false }) => {
         body: JSON.stringify(requestBody),
       })
 
+      console.log('Response status:', response.status, response.statusText)
+
       if (!response.ok) {
-        throw new Error(`FlowiseAI API error: ${response.status} ${response.statusText}`)
+        const errorText = await response.text()
+        console.error('FlowiseAI API error response:', errorText)
+        throw new Error(`FlowiseAI API error: ${response.status} ${response.statusText} - ${errorText}`)
       }
 
       const data = await response.json()
+      console.log('FlowiseAI response:', data)
       
       // FlowiseAI response format may vary, handle different response structures
       if (data.text) {
         return data.text
       } else if (data.response) {
         return data.response
+      } else if (data.answer) {
+        return data.answer
+      } else if (data.message) {
+        return data.message
       } else if (typeof data === 'string') {
         return data
       } else {
+        // If response is an object, try to extract text from common fields
         return JSON.stringify(data)
       }
     } catch (error) {

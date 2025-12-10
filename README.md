@@ -85,9 +85,41 @@ All CSS files are in their respective component folders. The main color scheme i
 
 - React 18
 - Vite
+- React Router DOM
 - React Icons
 - Modern CSS (Grid, Flexbox, Animations)
 - Responsive Design
+
+## Deployment
+
+### Deploy to Vercel
+
+This portfolio is ready to deploy to Vercel. Follow the comprehensive guide:
+
+📖 **[VERCEL_DEPLOYMENT_GUIDE.md](./VERCEL_DEPLOYMENT_GUIDE.md)** - Complete deployment instructions
+
+### Quick Deploy Steps
+
+1. Push your code to GitHub
+2. Sign up at [vercel.com](https://vercel.com)
+3. Import your repository
+4. Configure environment variables (if using FlowiseAI)
+5. Deploy!
+
+See `DEPLOYMENT_CHECKLIST.md` for a pre-deployment checklist.
+
+## Additional Features
+
+- **Interactive Projects**: Calculator, Task Manager, Fitness Tracker, and AI Chat Assistant
+- **Floating Chat Widget**: Accessible chatbot from any page
+- **FlowiseAI Integration**: Connect to FlowiseAI for AI-powered chat (see `FLOWISE_SETUP_GUIDE.md`)
+
+## Documentation
+
+- `VERCEL_DEPLOYMENT_GUIDE.md` - How to deploy to Vercel
+- `FLOWISE_SETUP_GUIDE.md` - How to set up FlowiseAI
+- `QUICK_START.md` - Quick FlowiseAI setup reference
+- `DEPLOYMENT_CHECKLIST.md` - Pre-deployment checklist
 
 ## License
 
