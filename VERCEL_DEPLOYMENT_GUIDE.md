@@ -136,6 +136,14 @@ This ensures proper routing for your React Router hash routes.
 
 ## Environment Variables Setup
 
+### ⚠️ Important: .env Files and Deployment
+
+**Your `.env` file is already in `.gitignore` - this is correct!**
+
+- ✅ `.env` files should NEVER be committed to GitHub (security risk!)
+- ✅ For local development: Use `.env` file
+- ✅ For production: Add variables in Vercel Dashboard
+
 ### For FlowiseAI Integration
 
 1. **In Vercel Dashboard:**
@@ -144,14 +152,27 @@ This ensures proper routing for your React Router hash routes.
    - Click "Environment Variables"
    - Add your variables:
      ```
-     VITE_FLOWISE_URL = https://your-flowise-server.com
+     VITE_FLOWISE_URL = https://cloud.flowiseai.com
      VITE_CHATFLOW_ID = your-chatflow-id
+     VITE_FLOWISE_API_KEY = your-api-key (if needed)
      ```
+   - **Important**: Select "Production", "Preview", and "Development" environments
+   - Click "Save" for each variable
 
 2. **Redeploy after adding variables:**
    - Go to "Deployments" tab
-   - Click the three dots on latest deployment
+   - Click the three dots (⋯) on latest deployment
    - Click "Redeploy"
+   - Your APIs will now work in production!
+
+### Why This Works
+
+- **Local**: `.env` file → Vite reads it → Works locally
+- **Production**: Vercel Dashboard → Variables injected during build → Works in production
+
+Both provide the same variables, just from different sources!
+
+📖 **See `ENV_VARIABLES_GUIDE.md` for detailed explanation**
 
 ### Important Notes:
 - Variables starting with `VITE_` are exposed to the browser
